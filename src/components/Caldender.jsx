@@ -25,6 +25,7 @@ const CalendarComponent = () => {
   //     end: new Date(2024, 11, 1, 11, 0),
   //   },
   // ]);
+  // const
   const [events, setEvents] = useState([]);
   const navigate = useNavigate();
 
@@ -71,6 +72,7 @@ const CalendarComponent = () => {
         endAccessor="end"
         eventPropGetter={eventStyleGetter}
         style={{ height: 500 }}
+        views={["month", "day", "agenda"]}
         onSelectEvent={handleEventClick}
       />
     </div>

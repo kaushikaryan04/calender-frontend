@@ -6,7 +6,6 @@ const EditEventPage = () => {
   const location = useLocation();
   const navigate = useNavigate();
 
-  // Access the event data passed from the calendar
   const event = location.state?.event;
 
   if (!event) {
@@ -19,13 +18,11 @@ const EditEventPage = () => {
     end: event.end,
   });
 
-  // Handle input changes
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prevData) => ({ ...prevData, [name]: value }));
   };
 
-  // Handle save
   const handleSave = async () => {
     const updatedEvent = {
       id: event.id,
@@ -43,14 +40,13 @@ const EditEventPage = () => {
       console.log("Updated Event:", updatedEvent);
       alert(`Event "${updatedEvent.title}" updated successfully!`);
 
-      navigate("/home"); // Redirect back to the calendar
+      navigate("/home");
     } catch (err) {
       console.log(err);
       return;
     }
   };
 
-  // Handle delete
   const handleDelete = async () => {
     try {
       const res = await axiosInstance.delete(`api/events/${event.id}/`);
